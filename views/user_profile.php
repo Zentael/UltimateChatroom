@@ -1,7 +1,18 @@
 <?php
+require('../config/db_config.php');
 session_start();
 $errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
 $users = isset($_SESSION['users']) ? $_SESSION['users'] : [];
+
+$dbh = new PDO(
+    'mysql:host=' . $db_config['host'] . ':' . $db_config['port'] . ';dbname=' . $db_config['schema'] . ";charset=" . $db_config['charset'],
+    $db_config['user'],
+    $db_config['password']
+);
+
+$stmt = $dbh->query("select * from chatrooms");
+$chatrooms = $stmt->fetchAll(PDO::FETCH_CLASS);
+var_dump($chatrooms);
 
 ?>
 

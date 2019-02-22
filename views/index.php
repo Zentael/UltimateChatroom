@@ -7,15 +7,10 @@ $dbh = new PDO(
     $db_config['user'],
     $db_config['password']
 );
-print_r($dbh);
 
 $stmt = $dbh->query("select * from users");
 $users = $stmt->fetchAll(PDO::FETCH_CLASS);
 var_dump($users);
-
-$stmt = $dbh->query("select * from chatrooms");
-$chatrooms = $stmt->fetchAll(PDO::FETCH_CLASS);
-var_dump($chatrooms);
 
 session_start();
 $errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];

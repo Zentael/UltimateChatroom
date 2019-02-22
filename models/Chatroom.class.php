@@ -83,5 +83,4 @@ Class Chatroom
         }
         return false;
     }
-
 }
