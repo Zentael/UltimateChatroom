@@ -69,19 +69,15 @@ Class Chatroom
             if(isset($data['user_id']) && !empty($data['user_id'])){
                 // update
             }
-
-            /* syntaxe avec preparedStatements */
             $dbh = Connection::get();
             $sql = "insert into chatrooms (name, user_id) values (:name, :user_id)";
             $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
             if ($sth->execute(array(
-                ':name' => $data['user_id'],
+                ':name' => $data['name'],
                 ':user_id' => $data['user_id']
             ))) {
                 return true;
             } else {
-                // ERROR
-                // put errors in $session
                 $this->errors['pas reussi a creer la chatroom'];
             }
         }

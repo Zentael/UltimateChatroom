@@ -31,7 +31,7 @@ $users = isset($_SESSION['users']) ? $_SESSION['users'] : [];
                 Nom de la chatroom
                 <input name="name" type="text" id="chatroomName"/>
             </label>
-            <input name="user_id" hidden value="1"/>
+            <input name="user_id" hidden value='1' />
             <button type="submit">Create Chatroom</button>
         </form>
 
